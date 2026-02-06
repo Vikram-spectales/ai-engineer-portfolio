@@ -34,27 +34,13 @@ export const metadata: Metadata = {
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" className="light" suppressHydrationWarning>
       <body className="font-sans antialiased">
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              (function () {
-                try {
-                  document.documentElement.classList.remove('dark');
-                  document.documentElement.classList.add('light');
-                  localStorage.setItem('theme', 'light');
-                } catch (e) {}
-              })();
-            `,
-          }}
-        />
         {children}
-        <Analytics />
       </body>
     </html>
-  )
+  );
 }
